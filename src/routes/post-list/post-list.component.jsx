@@ -1,10 +1,10 @@
-import PostItem from '../post-item/post-item.component'
+import PostItem from '../../components/post-item/post-item.component';
 import styles from './post-list.styles.module.css'
 
 const PostList = ({state, onChangeUpdate, onClickAdd}) => {
   return (
     <div>
-      <div className={styles.post_list}>
+      <div className="post_list">
         {state.posts.map(i => (
           <PostItem key={i.id} message={i.message} likes={i.likes}/>
         ))}

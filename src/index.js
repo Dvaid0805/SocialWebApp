@@ -5,11 +5,12 @@ import { Provider } from 'react-redux'
 import { createBrowserRouter, RouterProvider  } from 'react-router-dom';
 
 import SocialWeb from './routes/social-web/social-web.component';
-import Messenger from './routes/messenger/messenger.component';
+import MessengerContainer from './routes/messenger/messenger-container.component';
 import Friends from './routes/friends/friends.component';
 import UsersContainer from './routes/users/users-container.component';
-import Posts from './routes/posts/posts.component';
+import PostListContainer from './routes/post-list/post-list-container.component';
 import Profile from './routes/profile/profile.component';
+import Login from './components/login/login.component';
 
 import './index.css';
 
@@ -19,12 +20,16 @@ const router = createBrowserRouter([
     element: <SocialWeb/>,
     children: [
       {
+        path: '/login',
+        element: <Login/>
+      },
+      {
         path: '/posts',
-        element: <Posts/>,
+        element: <PostListContainer/>,
       },
       {
         path: '/messenger/*',
-        element: <Messenger/>,
+        element: <MessengerContainer/>,
       },
       {
         path: '/friends',
