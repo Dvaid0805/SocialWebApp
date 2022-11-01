@@ -1,15 +1,10 @@
 .nav {
     display: flex;
-    justify-content: center;
-    padding: 20px 10px;
-    background-color: #7a00f5;
-    max-height: 60px;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.nav_item + .nav_item {
-    margin-left: 12px;
-}
 
 .nav_item {
-    color: white;
+    color: black;
 }

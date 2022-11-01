@@ -1,10 +1,6 @@
 .social_web {
-    background-color: gray;
     min-height: 300px;
     position: relative;
+    background: #cdcdcd;
 }
 
-.content_container {
-    padding: 20px 40px;
-    min-height: calc(100vh - 60px);
-}
