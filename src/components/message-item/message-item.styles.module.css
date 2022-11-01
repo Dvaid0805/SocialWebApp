@@ -1,0 +1,14 @@
+.message_item {
+    padding: 18px 30px ;
+    border-radius: 12px;
+    font-size: 18px;
+    background-color: rgba(159, 59, 199, 0.89);
+    cursor: pointer;
+    transition: opacity .3s;
+}
+.message_item + .message_item{
+    margin-top: 20px;
+}
+.message_item:hover {
+    opacity: 0.7;
+}

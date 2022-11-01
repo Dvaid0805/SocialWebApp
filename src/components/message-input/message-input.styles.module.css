@@ -1,0 +1,25 @@
+.message_input_container {
+    width: 70%;
+    position: relative;
+}
+
+.message_input {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 0 0 15px;
+    display: block;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.send_button {
+    font-size: 22px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    background-color: white;
+}

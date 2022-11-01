@@ -1,0 +1,14 @@
+.messages_container {
+    width: 100%;
+    background-color: #e8e198;
+    padding: 20px 30px;
+    border-radius: 18px;
+}
+.items_container {
+    margin-bottom: 20px;
+}
+.input_container {
+    display: flex;
+    justify-content: center;
+
+}
