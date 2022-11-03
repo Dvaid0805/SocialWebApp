@@ -1,14 +1,14 @@
 import PostList from './post-list.component';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateInputTextActionCreator, addNewPostActionCreator } from '../../store/posts/postAction';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { WithAuthRedirect } from '../../hocs/withAuthRedirect';
+
 
 
 const PostListContainer = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
-  const navigate = useNavigate();
+
 
     const onChangeUpdateInputText = (text) => {
     dispatch(updateInputTextActionCreator(text));
@@ -16,12 +16,6 @@ const PostListContainer = () => {
   const onClickAddNewPost = () => {
     dispatch(addNewPostActionCreator(state.postPage.inputPost));
   }
-
-  useEffect(() => {
-    if(!state.userPage.auth.isAuth) {
-      navigate("/login");
-    }
-  }, [])
 
   return (
     <PostList
@@ -32,4 +26,6 @@ const PostListContainer = () => {
   )
 }
 
-export default PostListContainer;
+const PostListWithRedirect = WithAuthRedirect(PostListContainer);
+
+export default PostListWithRedirect;

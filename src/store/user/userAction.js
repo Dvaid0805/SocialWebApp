@@ -95,7 +95,6 @@ export const setCurrentPage = page => async dispatch => {
   dispatch(fetchUserActionCreator(page));
 };
 
-
 export const setAuthData = () => async dispatch => {
   try {
     dispatch({

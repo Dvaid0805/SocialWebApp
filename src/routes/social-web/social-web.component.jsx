@@ -5,10 +5,18 @@ import { setAuthData } from '../../store/user/userAction';
 import { useDispatch, useSelector } from 'react-redux'
 
 import styles from './social-web.styles.module.css';
+import { useEffect } from 'react'
+
 
 const SocialWeb = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state.userPage);
+
+  useEffect(() => {
+    if(!state.auth.isAuth) {
+      dispatch(setAuthData())
+    }
+  }, [])
 
   return (
     <div className={styles.social_web}>
