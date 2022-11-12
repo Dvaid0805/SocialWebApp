@@ -8,7 +8,6 @@ import SocialWeb from './routes/social-web/social-web.component';
 import MessengerContainer from './routes/messenger/messenger-container.component';
 import Friends from './routes/friends/friends.component';
 import UsersContainer from './routes/users/users-container.component';
-import PostListContainer from './routes/post-list/post-list-container.component';
 import Profile from './routes/profile/profile.component';
 import Login from './components/login/login.component';
 
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
       {
         path: '/login',
         element: <Login/>
-      },
-      {
-        path: '/posts',
-        element: <PostListContainer/>,
       },
       {
         path: '/messenger/*',

@@ -1,12 +1,6 @@
 import { userTypes } from '../typesConstants'
 import axios from 'axios';
-
-const instance = axios.create({
-  withCredentials: true,
-  headers: {"API-KEY": "367e63e1-9fd9-42b4-9056-9af4c7346df6"},
-  baseURL: "https://social-network.samuraijs.com/api/1.0/"
-
-})
+import { instance } from '../api/api';
 
 export const fetchUserActionCreator = (currentPage, pageSize) => async dispatch => {
   try{
@@ -18,7 +12,6 @@ export const fetchUserActionCreator = (currentPage, pageSize) => async dispatch 
       `users?page=${currentPage}&count=${pageSize}`,
       {withCredentials: true}
     );
-    console.log(response)
     dispatch({
       type: userTypes.USER_SUCCEED,
       payload: {

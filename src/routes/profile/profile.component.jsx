@@ -1,8 +1,11 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserProfile } from '../../store/profile/profileAction';
-import LoadingProgress from '../../components/loading-progress/loading-progerss.component';
+import { fetchProfileData } from '../../store/profile/profileAction'
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react'
+
+import ProfileStatus from '../../components/profile-status/profile-status.component';
+import PostListWithRedirect from '../../components/post-list/post-list-container.component';
+import LoadingProgress from '../../components/loading-progress/loading-progerss.component';
 
 import userImg from '../../assets/images/userImg.png';
 
@@ -13,26 +16,28 @@ const Profile = () => {
 
   useEffect(() => {
     if(params.userId) {
-      dispatch(setUserProfile(params.userId));
-    } else dispatch(setUserProfile(2))
+      dispatch(fetchProfileData(params.userId));
+    } else dispatch(fetchProfileData(params.userId))
   }, [dispatch]);
 
   return (
     <div>
       <LoadingProgress state={state} />
       {
-        state.currentUser ?
+        state.currentProfile ?
         <div>
           <div>
-            <img src={state.currentUser.photos.small !== null ? state.currentUser.photos.small : userImg }  alt=""/>
+            <img src={state.currentProfile.photos.small !== null ? state.currentProfile.photos.small : userImg }  alt=""/>
           </div>
           <div>
-            <h2>{ state.currentUser.fullName }</h2>
-            <p>{ state.currentUser.aboutMe }</p>
+            <h2>{ state.currentProfile.fullName }</h2>
+            <ProfileStatus dispatch={dispatch} status={state.profileStatus}/>
           </div>
+          <br/>
         </div>
           : <div>no user</div>
       }
+      <PostListWithRedirect/>
     </div>
   )
 }

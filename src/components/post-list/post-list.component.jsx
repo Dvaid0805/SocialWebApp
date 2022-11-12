@@ -1,7 +1,11 @@
 import PostItem from '../../components/post-item/post-item.component';
+import AddPostForm from '../add-post-form/add-post-form.component'
 import styles from './post-list.styles.module.css'
 
-const PostList = ({state, onChangeUpdate, onClickAdd}) => {
+const PostList = ({state, onClickAddNewPost}) => {
+  const addNewMessage = (value) => {
+    onClickAddNewPost(value.newPostBody)
+  }
   return (
     <div>
       <div className="post_list">
@@ -9,16 +13,7 @@ const PostList = ({state, onChangeUpdate, onClickAdd}) => {
           <PostItem key={i.id} message={i.message} likes={i.likes}/>
         ))}
       </div>
-      <div className="input_container">
-        <textarea
-          value={state.inputPost}
-          onChange={e => {
-            onChangeUpdate(e.target.value)
-          }}
-          placeholder="message..."
-        />
-        <button onClick={onClickAdd}>-></button>
-      </div>
+      <AddPostForm onSubmit={addNewMessage} />
     </div>
   )
 }

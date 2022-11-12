@@ -1,14 +1,5 @@
 import { messageTypes } from '../typesConstants';
 
-export const updateInputTextActionCreator = (text) => {
-  return {
-    type: messageTypes.UPDATE_INPUT_MESSAGE_TEXT,
-    payload: {
-      text: text,
-    }
-  }
-}
-
 export const addNewMessageActionCreator = (text) => {
   const newMessage = {
     id: 5,

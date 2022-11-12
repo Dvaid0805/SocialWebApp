@@ -13,22 +13,15 @@ const initialState = {
     {id: 3, message: 'At 12'},
     {id: 4, message: 'What is you fill name?'}
   ],
-  inputMessage: []
 }
 
 export const messageReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case messageTypes.UPDATE_INPUT_MESSAGE_TEXT:
-      return {
-        ...state,
-        inputMessage: payload.text
-      }
     case messageTypes.ADD_NEW_MESSAGE:
       return {
         ...state,
         messages: [...state.messages, payload.newMessage],
-        inputMessage: []
       }
     default: return state
   }

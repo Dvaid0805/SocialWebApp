@@ -11,7 +11,7 @@ const PageHeader = ({ state, dispatch, setAuthData }) => {
                 {
                   state.auth.isAuth
                     ? <span> { state.auth.data.login } </span>
-                    : <span style={{ cursor: "pointer" }}>LogIn</span>
+                    : <span onClick={() => (dispatch(setAuthData))}  style={{ cursor: "pointer" }}>LogIn</span>
                 }
               </li>
             </ul>

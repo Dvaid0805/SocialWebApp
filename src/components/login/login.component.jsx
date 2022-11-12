@@ -1,7 +1,13 @@
-const Login = () => {
+import LoginForm from '../login-form/login-form.component';
+
+const Login = (props) => {
+  const onSubmit = (formData) => {
+    console.log(formData);
+  }
   return (
     <div>
-      Login...
+      <h1>LOgin</h1>
+      <LoginForm onSubmit={onSubmit} />
     </div>
   )
 }

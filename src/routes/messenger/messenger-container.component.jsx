@@ -9,16 +9,12 @@ const MessengerContainer = () => {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
-  const onChangeUpdateInputText = (text) => {
-    dispatch(updateInputTextActionCreator(text));
-  }
-  const onClickAddNewMessage = () => {
-    dispatch(addNewMessageActionCreator(state.dialogsPage.inputMessage));
+  const onClickAddNewMessage = (newMessageBody) => {
+    dispatch(addNewMessageActionCreator(newMessageBody));
   }
   return (
       <Messenger
         state={state.dialogsPage}
-        onChangeUpdateInputText={onChangeUpdateInputText}
         onClickAddNewMessage={onClickAddNewMessage}
       />
   )

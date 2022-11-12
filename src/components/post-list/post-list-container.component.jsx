@@ -9,19 +9,14 @@ const PostListContainer = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
 
-
-    const onChangeUpdateInputText = (text) => {
-    dispatch(updateInputTextActionCreator(text));
-  }
-  const onClickAddNewPost = () => {
-    dispatch(addNewPostActionCreator(state.postPage.inputPost));
+  const onClickAddNewPost = (newPostText) => {
+    dispatch(addNewPostActionCreator(newPostText));
   }
 
   return (
     <PostList
       state={state.postPage}
-      onChangeUpdate={onChangeUpdateInputText}
-      onClickAdd={onClickAddNewPost}
+      onClickAddNewPost={onClickAddNewPost}
     />
   )
 }

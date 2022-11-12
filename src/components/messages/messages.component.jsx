@@ -1,9 +1,16 @@
 import React from 'react';
 import MessageItem from '../message-item/message-item.component';
 
+import AddMessageForm from '../add-message-form/add-message-form.component'
+
 import styles from './messages.styles.module.css';
 
-const Messages = ({state, onChangeUpdateInputText, onClickAddNewMessage}) => {
+
+const Messages = ({state, onClickAddNewMessage}) => {
+
+  const addNewMessage = (value) => {
+    onClickAddNewMessage(value.newMessageBody)
+  }
   const { messages_container, items_container, input_container } = styles;
 
   return (
@@ -11,16 +18,11 @@ const Messages = ({state, onChangeUpdateInputText, onClickAddNewMessage}) => {
       <div className={items_container}>
         {state.messages.map(i => <MessageItem key={i.id} message={i.message}/>)}
       </div>
-      <div className={input_container}>
-        <textarea
-          value={state.inputMessage}
-          onChange={e => {onChangeUpdateInputText(e.target.value)}}
-          placeholder="message..."
-        />
-        <button onClick={onClickAddNewMessage} >-></button>
-      </div>
+      <AddMessageForm onSubmit={addNewMessage} />
     </div>
   )
 }
 
 export default Messages
+
+

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 import { messageReducer } from './message/messageReducer';
 import { postReducer } from './posts/postReducer';
@@ -10,4 +11,5 @@ export const rootReducer = combineReducers({
   postPage: postReducer,
   userPage: userReducer,
   profilePage: profileReducer,
+  form: formReducer
 })

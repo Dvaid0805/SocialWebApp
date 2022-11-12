@@ -3,13 +3,12 @@ import Messages from '../../components/messages/messages.component';
 
 import styles from './messenger.styles.module.css';
 
-const Messenger = ({ state, onChangeUpdateInputText, onClickAddNewMessage }) => {
+const Messenger = ({ state, onClickAddNewMessage }) => {
     return (
       <div className={styles.messenger_container}>
           <Tabs state={state} />
           <Messages
             state={state}
-            onChangeUpdateInputText={onChangeUpdateInputText}
             onClickAddNewMessage={onClickAddNewMessage}
           />
       </div>

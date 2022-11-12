@@ -7,7 +7,6 @@ const Navigation = () => {
   const { nav, nav_item } = styles;
   return (
     <nav className={nav}>
-      <Link className={nav_item} to="posts">Posts</Link>
       <Link className={nav_item} to="messenger">Messanger</Link>
       <Link className={nav_item} to="friends">Friends</Link>
       <Link className={nav_item} to="users">Users</Link>
