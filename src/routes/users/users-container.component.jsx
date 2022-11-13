@@ -7,6 +7,7 @@ import LoadingProgress from '../../components/loading-progress/loading-progerss.
 const UsersContainer = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state.userPage);
+  const auth = useSelector(state => state.auth);
 
   const onClickFollow = (userId) => {
     dispatch(followUser(userId))
@@ -35,7 +36,7 @@ const UsersContainer = () => {
   return (
     <>
       <LoadingProgress state={ state } />
-      <Users state={state} follow={onClickFollow} unfollow={onClickUnfollow} paginationClick={onClickPagination} pages={pages} />
+      <Users state={state} auth={auth} follow={onClickFollow} unfollow={onClickUnfollow} paginationClick={onClickPagination} pages={pages} />
     </>
 
     )

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 import styles from './users.styles.module.css';
 
-const Users = ({state, follow, unfollow, paginationClick, pages}) => {
+const Users = ({state, auth, follow, unfollow, paginationClick, pages}) => {
 
   const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -33,7 +33,7 @@ const Users = ({state, follow, unfollow, paginationClick, pages}) => {
     setOpenUnfoll(false);
   };
 
-
+  console.log(auth)
   return (
     <div className="Users" >
 
@@ -63,8 +63,8 @@ const Users = ({state, follow, unfollow, paginationClick, pages}) => {
                 <div>{ `${i.followed}` }</div>
                 <div>
                   {
-                    state.auth.isAuth &&
-                    ((i.name !== state.auth.data.login)
+                    auth.data.isAuth &&
+                    ((i.name !== auth.data.login)
                         ?(i.followed
                             ? <div>
                               <Button disabled={state.followingInProgress === i.id} variant="contained" color="success" onClick={ () => (handleUnfollow(i.id))}>Followed</Button>

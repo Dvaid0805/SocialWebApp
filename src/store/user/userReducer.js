@@ -3,10 +3,6 @@ import { userTypes } from '../typesConstants';
 
 const initialState = {
   users: [],
-  auth: {
-    data: {},
-    isAuth: false
-  },
   error: "",
   loading: false,
   pageSize: 5,
@@ -23,12 +19,6 @@ export const userReducer = (state = initialState, action) => {
       return {
         ...state,
         followingInProgress: action.userId
-      }
-    case userTypes.AUTH_SET_DATA:
-      return {
-        ...state,
-        loading: false,
-        auth: { ...state.auth, data: action.data , isAuth: true  }
       }
     case userTypes.SET_CURRENT_PAGE:
       return {

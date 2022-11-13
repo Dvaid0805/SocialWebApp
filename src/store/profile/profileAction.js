@@ -1,5 +1,5 @@
 import { profileTypes } from '../typesConstants'
-import { instance, profileApi } from '../api/api';
+import { instance } from '../api/api';
 
 const setProfileStatus = response => (
   {

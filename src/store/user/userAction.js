@@ -1,5 +1,4 @@
 import { userTypes } from '../typesConstants'
-import axios from 'axios';
 import { instance } from '../api/api';
 
 export const fetchUserActionCreator = (currentPage, pageSize) => async dispatch => {
@@ -8,10 +7,7 @@ export const fetchUserActionCreator = (currentPage, pageSize) => async dispatch 
       type: userTypes.LOADING
     })
 
-    const response = await instance.get(
-      `users?page=${currentPage}&count=${pageSize}`,
-      {withCredentials: true}
-    );
+    const response = await instance.get(`users?page=${currentPage}&count=${pageSize}`);
     dispatch({
       type: userTypes.USER_SUCCEED,
       payload: {
@@ -87,33 +83,3 @@ export const setCurrentPage = page => async dispatch => {
   });
   dispatch(fetchUserActionCreator(page));
 };
-
-export const setAuthData = () => async dispatch => {
-  try {
-    dispatch({
-      type: userTypes.LOADING,
-    });
-
-    await instance.get(`auth/me`, { withCredentials: true })
-      .then(res => {
-      if( res.data.resultCode === 0) {
-        dispatch({
-          type: userTypes.AUTH_SET_DATA,
-          data: res.data.data
-        })
-      } else {
-        dispatch({
-          type: userTypes.ERROR,
-          error: "User hasn't account "
-        });
-        setTimeout(() => (alert("Please, create an account here: 'link' ")), 10)
-      }
-    })
-
-  } catch(error) {
-    dispatch({
-      type: userTypes.ERROR,
-      error
-    });
-  }
-}

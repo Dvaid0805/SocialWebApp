@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 export const WithAuthRedirect = (Component) => {
   const AuthContainer = () => {
-    const isAuth = useSelector(state => state.userPage.auth.isAuth);
+    const isAuth = useSelector(state => state.auth.data.isAuth);
     const navigate = useNavigate();
 
     useEffect(() => {

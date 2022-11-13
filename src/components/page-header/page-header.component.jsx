@@ -1,6 +1,7 @@
 import styles from './page-header.styles.module.css';
+import { Link } from 'react-router-dom'
 
-const PageHeader = ({ state, dispatch, setAuthData }) => {
+const PageHeader = ({ state, onClickLogout }) => {
   return (
     <div className={styles.header}>
         <div className="container">
@@ -9,9 +10,14 @@ const PageHeader = ({ state, dispatch, setAuthData }) => {
               <li className={styles.topNav_item} >logo</li>
               <li className={styles.topNav_item} >
                 {
-                  state.auth.isAuth
-                    ? <span> { state.auth.data.login } </span>
-                    : <span onClick={() => (dispatch(setAuthData))}  style={{ cursor: "pointer" }}>LogIn</span>
+                  state.data.isAuth
+                    ?
+                    <>
+                      <span> { state.data.login } </span>
+                      -
+                      <span style={{ cursor: "pointer" }} onClick={onClickLogout}>Logout</span>
+                    </>
+                    : <Link to="login" style={{ cursor: "pointer" }}>LogIn</Link>
                 }
               </li>
             </ul>

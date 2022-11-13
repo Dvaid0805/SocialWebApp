@@ -5,11 +5,13 @@ import { messageReducer } from './message/messageReducer';
 import { postReducer } from './posts/postReducer';
 import { userReducer } from './user/userReducer';
 import { profileReducer } from './profile/profileReducer';
+import { authReducer } from './auth/authReducer';
 
 export const rootReducer = combineReducers({
   dialogsPage: messageReducer,
   postPage: postReducer,
   userPage: userReducer,
   profilePage: profileReducer,
-  form: formReducer
+  form: formReducer,
+  auth: authReducer
 })

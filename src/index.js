@@ -9,7 +9,7 @@ import MessengerContainer from './routes/messenger/messenger-container.component
 import Friends from './routes/friends/friends.component';
 import UsersContainer from './routes/users/users-container.component';
 import Profile from './routes/profile/profile.component';
-import Login from './components/login/login.component';
+import Login from './routes/login/login.component';
 
 import './index.css';
 
