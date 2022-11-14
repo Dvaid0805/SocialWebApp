@@ -2,7 +2,7 @@ import { FormControl } from '../forms-controls/forms-controls.component';
 import { required, maxLength } from '../../utils/validators/validators';
 import { Field, reduxForm } from 'redux-form';
 
-const maxLength20 = maxLength(20);
+const maxLength40 = maxLength(40);
 const FormControlInput = FormControl("input")
 
 const LoginForm = (props) => {
@@ -13,7 +13,7 @@ const LoginForm = (props) => {
           name="email"
           component={FormControlInput}
           placeholder="Email"
-          validate={[required, maxLength20]}
+          validate={[required, maxLength40]}
         />
       </div>
       <div>
@@ -22,7 +22,7 @@ const LoginForm = (props) => {
           component={FormControlInput}
           placeholder="Password"
           type="password"
-          validate={[required, maxLength20]}
+          validate={[required, maxLength40]}
         />
       </div>
       <div>
@@ -32,6 +32,9 @@ const LoginForm = (props) => {
           type="checkbox"
           validate={[required]}
         /> Remember me
+      </div>
+      <div style={{ color: "red" }} >
+        {props.error}
       </div>
       <div>
         <button>Login</button>

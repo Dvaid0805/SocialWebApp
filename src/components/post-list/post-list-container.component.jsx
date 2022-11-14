@@ -1,6 +1,6 @@
 import PostList from './post-list.component';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateInputTextActionCreator, addNewPostActionCreator } from '../../store/posts/postAction';
+import { addNewPostActionCreator } from '../../store/posts/postAction';
 import { WithAuthRedirect } from '../../hocs/withAuthRedirect';
 
 

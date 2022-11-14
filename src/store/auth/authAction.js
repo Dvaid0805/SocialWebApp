@@ -1,5 +1,6 @@
 import { instance } from '../api/api';
 import { authTypes } from '../typesConstants';
+import { stopSubmit } from 'redux-form'
 
 const setAuthUserData = (userId, email, login, isAuth=true) => ({
   type: authTypes.SET_USER_DATA,
@@ -21,6 +22,9 @@ export const logIn = (email, password, rememderMe) => dispatch => {
     .then(res => {
       if(res.data.resultCode === 0) {
         dispatch(getAuthUserData());
+      } else {
+        const message = res.data.messages.length > 0 ? res.data.messages[0] : "Some eror";
+        dispatch(stopSubmit("login", { _error: message }));
       }
     })
 }

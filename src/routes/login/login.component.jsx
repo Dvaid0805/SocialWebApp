@@ -13,7 +13,7 @@ const Login = (props) => {
     console.log(formData)
   }
   if(auth) {
-    return navigate("/");
+    return navigate("/profile");
   }
   return (
     <div>

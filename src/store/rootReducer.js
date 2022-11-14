@@ -6,6 +6,7 @@ import { postReducer } from './posts/postReducer';
 import { userReducer } from './user/userReducer';
 import { profileReducer } from './profile/profileReducer';
 import { authReducer } from './auth/authReducer';
+import { appReducer } from './app/appReducer';
 
 export const rootReducer = combineReducers({
   dialogsPage: messageReducer,
@@ -13,5 +14,6 @@ export const rootReducer = combineReducers({
   userPage: userReducer,
   profilePage: profileReducer,
   form: formReducer,
-  auth: authReducer
+  auth: authReducer,
+  app: appReducer
 })

@@ -33,7 +33,7 @@ const Users = ({state, auth, follow, unfollow, paginationClick, pages}) => {
     setOpenUnfoll(false);
   };
 
-  console.log(auth)
+
   return (
     <div className="Users" >
 

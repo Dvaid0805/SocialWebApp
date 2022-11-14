@@ -2,7 +2,7 @@ import React, { useEffect, useMemo } from 'react'
 import Users from './users.component';
 import { fetchUserActionCreator, followUser, unfollowUser, setCurrentPage } from '../../store/user/userAction';
 import { useDispatch, useSelector } from 'react-redux';
-import LoadingProgress from '../../components/loading-progress/loading-progerss.component';
+import LoadingProgress from '../../components/loading-progress/loading-progress.component';
 
 const UsersContainer = () => {
   const dispatch = useDispatch();
@@ -35,8 +35,17 @@ const UsersContainer = () => {
 
   return (
     <>
-      <LoadingProgress state={ state } />
-      <Users state={state} auth={auth} follow={onClickFollow} unfollow={onClickUnfollow} paginationClick={onClickPagination} pages={pages} />
+      {state.loading
+        ? <LoadingProgress/>
+        :<Users
+          state={state}
+          auth={auth}
+          follow={onClickFollow}
+          unfollow={onClickUnfollow}
+          paginationClick={onClickPagination}
+          pages={pages}
+        />
+      }
     </>
 
     )

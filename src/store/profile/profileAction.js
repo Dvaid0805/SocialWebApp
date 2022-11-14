@@ -22,14 +22,14 @@ const setProfileData = response => (
 export const fetchProfileData = userId => async dispatch => {
   try {
     dispatch({
-      type: profileTypes.PROFILE_LOADING_USER
+      type: profileTypes.PROFILE_LOADING
     });
 
     const profileData = await instance.get(`profile/${userId}`).then(res => (dispatch(setProfileData(res))));
     const statusData = await instance.get(`profile/status/${userId}`).then(res => (dispatch(setProfileStatus(res.data))));
 
     dispatch({
-      type: profileTypes.PROFILE_LOADING_USER_STOP
+      type: profileTypes.PROFILE_LOADING_STOP
     })
 
   } catch(error) {

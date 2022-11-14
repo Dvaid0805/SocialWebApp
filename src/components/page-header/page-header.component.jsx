@@ -13,7 +13,7 @@ const PageHeader = ({ state, onClickLogout }) => {
                   state.data.isAuth
                     ?
                     <>
-                      <span> { state.data.login } </span>
+                      <Link to="/profile"> { state.data.login } </Link>
                       -
                       <span style={{ cursor: "pointer" }} onClick={onClickLogout}>Logout</span>
                     </>

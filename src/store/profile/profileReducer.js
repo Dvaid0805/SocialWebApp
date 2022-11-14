@@ -3,8 +3,8 @@ import { profileTypes } from '../typesConstants';
 const initialState = {
   currentProfile: null,
   loading: false,
-  error: "",
-  profileStatus: null
+  error: '',
+  profileStatus: ''
 }
 
 export const profileReducer = (state = initialState, action) => {
@@ -27,12 +27,12 @@ export const profileReducer = (state = initialState, action) => {
         error: action.error,
         loading: false
       }
-    case profileTypes.PROFILE_LOADING_USER:
+    case profileTypes.PROFILE_LOADING:
       return {
         ...state,
         loading: true
       }
-    case profileTypes.PROFILE_LOADING_USER_STOP:
+    case profileTypes.PROFILE_LOADING_STOP:
       return {
         ...state,
         loading: false

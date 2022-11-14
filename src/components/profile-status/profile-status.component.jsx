@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { updateProfileStatus } from '../../store/profile/profileAction';
 
 const ProfileStatus = ({ status, dispatch }) => {
-  const [statusText, setStatusText] = useState(status)
+  const [statusText, setStatusText] = useState('')
   const [editMode, setEditMode] = useState(false);
 
   const toggleEditeMode = () => {
